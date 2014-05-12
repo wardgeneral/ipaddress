@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="org.ward.ipaddress"
+    version="4.2.3">
+
+   <name>Calendar</name>
+
+   <description>
+     This plugin allows allows you to manipulate the native calendar.
+   </description>
+
+   <license>MIT</license>
+
+   <engines>
+      <engine name="cordova" version=">=3.0.0" />
+   </engines>
+
+   <js-module src="www/ipaddress.js" name="ipaddress">
+       <clobbers target="window.ipaddress" />
+   </js-module>
+
+
+   
+   <!-- android -->
+   <platform name="android">
+      <config-file target="res/xml/config.xml" parent="/*">
+          <feature name="ipaddress">
+              <param name="android-package" value="org.ward.ipaddress.IPAddress"/>
+          </feature>
+      </config-file>
+     <config-file target="AndroidManifest.xml" parent="/manifest">
+       <uses-permission android:name="android.permission.READ_CALENDAR"/>
+       <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+     </config-file>
+      <source-file src="src/android/IPAddress.java" target-dir="src/org/ward/ipaddress" />
+        </platform>
+</plugin>
