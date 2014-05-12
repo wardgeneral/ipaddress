@@ -21,6 +21,6 @@
             </feature>
         </config-file>
  
-        <source-file src="src/android/ipaddress.java" target-dir="src/org/ward/ipaddress" />
+        <source-file src="src/android/Ipaddress.java" target-dir="src/org/ward/ipaddress" />
      </platform>          
 </plugin>
