@@ -1,21 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-id="com.cordovaprogramming.meaningoflife" version="3.0.0">
-<name>MoL</name>
-<description>Calculates the Meaning of Life (an obscure
-reference to Douglas Adams's Hitchhiker's Guide to the
-Galaxy)
-</description>
-<author>John M. Wargo</author>
-<keywords>mol, Meaning of Life</keywords>
-<license>Apache 2.0 License</license>
-<engines>
-<engine name="cordova" version="3.0.0" />
-</engines>
-<js-module src="mol.js" name="mol">
-<clobbers target="mol" />
-</js-module>
-<info>This plugin exists for no other reason but to
-demonstrate how to build a simple, JavaScript-only
-plugin for Apache Cordova.</info>
+<plugin
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="org.ward.ipaddress"
+    version="4.2.3">
+
+   <name>Calendar</name>
+
+   <description>
+     This plugin allows allows you to manipulate the native calendar.
+   </description>
+
+   <license>MIT</license>
+
+   <engines>
+      <engine name="cordova" version=">=3.0.0" />
+   </engines>
+
+   <js-module src="www/ipaddress.js" name="ipaddress">
+       <clobbers target="window.ipaddress" />
+   </js-module>
+
+
+   
+   <!-- android -->
+   <platform name="android">
+      <config-file target="res/xml/config.xml" parent="/*">
+          <feature name="ipaddress">
+              <param name="android-package" value="org.ward.ipaddress.IPAddress"/>
+          </feature>
+      </config-file>
+     <config-file target="AndroidManifest.xml" parent="/manifest">
+       <uses-permission android:name="android.permission.READ_CALENDAR"/>
+       <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+     </config-file>
+      <source-file src="src/android/IPAddress.java" target-dir="src/org/ward/ipaddress" />
+        </platform>
 </plugin>
